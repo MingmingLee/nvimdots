@@ -6,11 +6,11 @@ settings["use_ssh"] = true
 
 -- Set it to false if you don't use copilot
 ---@type boolean
-settings["use_copilot"] = true
+settings["use_copilot"] = false
 
 -- Set it to false if there is no need to format on save.
 ---@type boolean
-settings["format_on_save"] = true
+settings["format_on_save"] = false
 
 -- Set format timeout here (in ms).
 ---@type number
@@ -114,7 +114,7 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"lua_ls",
 	"pylsp",
-	"gopls",
+--	"gopls",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.
@@ -124,8 +124,8 @@ settings["lsp_deps"] = {
 ---@type string[]
 settings["null_ls_deps"] = {
 	"clang_format",
-	"gofumpt",
-	"goimports",
+--	"gofumpt",
+--	"goimports",
 	"prettier",
 	"shfmt",
 	"stylua",

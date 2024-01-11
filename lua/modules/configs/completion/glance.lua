@@ -3,7 +3,7 @@ return function()
 	local actions = require("glance").actions
 
 	require("modules.utils").load_plugin("glance", {
-		height = 20,
+		height = 30,
 		zindex = 50,
 		preview_win_opts = {
 			cursorline = true,

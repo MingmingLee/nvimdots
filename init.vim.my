@@ -1,0 +1,28 @@
+set runtimepath^=~/.vim
+set runtimepath+=~/opensouce/neovim/__install_v0.10.1/share/nvim/runtime
+set runtimepath+=~/.config/nvim/
+let &packpath = &runtimepath
+source ~/.vimrc
+lua require("lua-setup")
+" Using Lua functions
+nnoremap <leader>ti <cmd>lua require('telescope.builtin').lsp_incoming_calls()<cr>
+nnoremap <leader>to <cmd>lua require('telescope.builtin').lsp_outgoing_calls()<cr>
+nnoremap <leader>tsd <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
+nnoremap <leader>tsw <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+nnoremap <leader>tsa <cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>
+nnoremap <leader>tsb <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+nnoremap <leader>td <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+nnoremap <leader>tr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+nnoremap <leader>tm <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
+nnoremap <leader>ttd <cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>
+nnoremap <leader>ta <cmd>lua require('telescope.builtin').treesitter()<cr>
+nnoremap <leader>tg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>th <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fj <cmd>lua require('telescope.builtin').jumplist()<cr>
+nnoremap <leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').marks()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>

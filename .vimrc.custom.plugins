@@ -1,0 +1,52 @@
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 用户自定义插件列表（该文件只放插件，若要增加其他配置，请放入~/.vimrc.custom.config）
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" 增加~/.vimrc里没有的插件
+" 增加插件后需要进行插件安装，安装步骤如下：
+" 1.执行:w保存修改
+" 2.执行,s重新加载vim配置
+" 3.执行,,i进行插件安装
+" Plug 'iamcco/mathjax-support-for-mkdp'
+" (需要自己安装nodejs和yarn) Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'Yggdroot/indentLine'
+Plug 'skywind3000/vim-preview'
+Plug 'liuchengxu/vim-which-key'
+Plug 'haya14busa/vim-easyoperator-line'
+Plug 'haya14busa/vim-easyoperator-phrase'
+Plug 'haya14busa/incsearch.vim'
+Plug 'vim-scripts/Mark'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'liuchengxu/vista.vim'
+Plug 'szw/vim-maximizer'
+" List your plugins here
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'tpope/vim-sensible'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-telescope/telescope-frecency.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+"Plug 'JimmyHuang454/EasyCompleteYou'
+Plug 'nvimdev/lspsaga.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
+"Plug 'folke/which-key.nvim'
+"Plug 'nvimtools/null-ls.nvim'
+"Plug 'jay-babu/mason-null-ls.nvim'
+Plug 'nvimdev/indentmini.nvim'
+Plug 'ibhagwan/smartyank.nvim'
+Plug 'ojroques/nvim-hardline'
+Plug 'mhinz/vim-signify'

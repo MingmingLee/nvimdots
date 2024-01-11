@@ -86,6 +86,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "debugloop/telescope-undo.nvim" },
 		{ "nvim-telescope/telescope-frecency.nvim" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		{ "fcying/telescope-ctags-outline.nvim"},
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{
 			"FabianWirth/search.nvim",
@@ -134,6 +135,132 @@ tool["mfussenegger/nvim-dap"] = {
 			},
 		},
 		{ "jay-babu/mason-nvim-dap.nvim" },
+	},
+}
+
+tool["Yggdroot/LeaderF"] = {
+	lazy = false,
+	run = ':LeaderfInstallCExtension',
+}
+
+tool["christoomey/vim-tmux-navigator"] = {
+	lazy = false,
+}
+
+tool["tmux-plugins/vim-tmux"] = {
+	lazy = false,
+}
+
+tool["skywind3000/asyncrun.vim"] = {
+	lazy = false,
+}
+
+tool["liuchengxu/vista.vim"] = {
+	lazy = false,
+}
+
+tool["junegunn/fzf"] = {
+	lazy = false,
+	run = function()
+        -- 使用 fzf-nvim 包中的安装函数来安装 fzf 二进制文件
+        vim.fn['fzf#install']()
+        end
+}
+
+tool["inkarkat/vim-mark"] = {
+	lazy = false,
+	dependencies = { "inkarkat/vim-ingo-library" },
+}
+
+tool["cshuaimin/ssr.nvim"] = {
+	lazy = false,
+	  module = "ssr",
+  -- Calling setup is optional.
+  config = function()
+    require("ssr").setup {
+      border = "rounded",
+      min_width = 50,
+      min_height = 5,
+      max_width = 120,
+      max_height = 25,
+      adjust_window = true,
+      keymaps = {
+        close = "q",
+        next_match = "n",
+        prev_match = "N",
+        replace_confirm = "<cr>",
+        replace_all = "<leader><cr>",
+      },
+    }
+  end
+}
+
+tool["jeffkreeftmeijer/vim-numbertoggle"] = {
+
+	lazy = false,
+}
+
+tool["gbprod/yanky.nvim"] = {
+	lazy = false,
+}
+
+tool['Wansmer/symbol-usage.nvim'] = {
+	lazy = false,
+	event = 'BufReadPre', -- 在LspAttach之前运行，如果使用的是nvim 0.9。对于0.10，使用'LspAttach'
+	config = function()
+		require('symbol-usage').setup()
+	end
+}
+
+tool["linrongbin16/fzfx.nvim"] = {
+	dependencies = { "nvim-tree/nvim-web-devicons", 'junegunn/fzf' },
+
+		    -- specify version to avoid break changes
+		    -- version = 'v5.*',
+
+		    config = function()
+			      require("fzfx").setup()
+		    end,
+
+}
+--tool["smoka7/multicursors.nvim"] = {
+--    event = "VeryLazy",
+--    dependencies = {
+--        'nvimtools/hydra.nvim',
+--    },
+--	lazy = false,
+--    opts = {},
+--    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+--    keys = {
+--            {
+--                mode = { 'v', 'n' },
+--                '<C-m>',
+--                '<cmd>MCstart<cr>',
+--                desc = 'Create a selection for selected text or word under the cursor',
+--            },
+--        },
+--}
+
+tool["chrisgrieser/nvim-spider"] = {
+	lazy = false,
+	keys = {
+		{
+			"w",
+			"<cmd>lua require('spider').motion('w')<CR>",
+			mode = { "n", "o", "x" },
+		},
+
+		{
+			"b",
+			"<cmd>lua require('spider').motion('b')<CR>",
+			mode = { "n", "o", "x" },
+		},
+		{
+			"e",
+			"<cmd>lua require('spider').motion('e')<CR>",
+			mode = { "n", "o", "x" },
+		},
+
 	},
 }
 

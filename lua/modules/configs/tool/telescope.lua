@@ -18,7 +18,7 @@ return function()
 			scroll_strategy = "limit",
 			results_title = false,
 			layout_strategy = "horizontal",
-			path_display = { "absolute" },
+			path_display = { "filename_first", "smart" },
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
 			color_devicons = true,

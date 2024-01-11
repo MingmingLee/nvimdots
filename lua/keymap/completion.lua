@@ -14,8 +14,8 @@ local mapping = {}
 function mapping.lsp(buf)
 	local map = {
 		-- LSP-related keymaps, ONLY effective in buffers with LSP(s) attached
-		["n|<leader>li"] = map_cr("LspInfo"):with_silent():with_buffer(buf):with_desc("lsp: Info"),
-		["n|<leader>lr"] = map_cr("LspRestart"):with_silent():with_buffer(buf):with_nowait():with_desc("lsp: Restart"),
+		["n|<leader>lli"] = map_cr("LspInfo"):with_silent():with_buffer(buf):with_desc("lsp: Info"),
+		["n|<leader>llr"] = map_cr("LspRestart"):with_silent():with_buffer(buf):with_nowait():with_desc("lsp: Restart"),
 		["n|go"] = map_cr("AerialToggle!"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
 		["n|gto"] = map_callback(function()
 				require("telescope").extensions.aerial.aerial()
@@ -31,7 +31,7 @@ function mapping.lsp(buf)
 			:with_silent()
 			:with_buffer(buf)
 			:with_desc("lsp: Next diagnostic"),
-		["n|<leader>lx"] = map_cr("Lspsaga show_line_diagnostics ++unfocus")
+		["n|<leader>lld"] = map_cr("Lspsaga show_line_diagnostics ++unfocus")
 			:with_silent()
 			:with_buffer(buf)
 			:with_desc("lsp: Line diagnostic"),
@@ -55,11 +55,11 @@ function mapping.lsp(buf)
 			:with_silent()
 			:with_buffer(buf)
 			:with_desc("lsp: Show implementation"),
-		["n|gci"] = map_cr("Lspsaga incoming_calls")
+		["n|<leader>ci"] = map_cr("Lspsaga incoming_calls")
 			:with_silent()
 			:with_buffer(buf)
 			:with_desc("lsp: Show incoming calls"),
-		["n|gco"] = map_cr("Lspsaga outgoing_calls")
+		["n|<leader>co"] = map_cr("Lspsaga outgoing_calls")
 			:with_silent()
 			:with_buffer(buf)
 			:with_desc("lsp: Show outgoing calls"),

@@ -5,6 +5,8 @@ local map_cmd = bind.map_cmd
 local map_callback = bind.map_callback
 require("keymap.helpers")
 
+vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
+
 local plug_map = {
 	-- Plugin: vim-fugitive
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
@@ -12,13 +14,13 @@ local plug_map = {
 	["n|<leader>gG"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
 	-- Plugin: nvim-tree
-	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
+	["n|<leader>nn"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent():with_desc("filetree: Find file"),
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
 
 	-- Plugin: sniprun
-	["v|<leader>r"] = map_cr("SnipRun"):with_noremap():with_silent():with_desc("tool: Run code by range"),
-	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent():with_desc("tool: Run code by file"),
+--	["v|<leader>sr"] = map_cr("SnipRun"):with_noremap():with_silent():with_desc("tool: Run code by range"),
+--	["n|<leader>sr"] = map_cu([[%SnipRun]]):with_noremap():with_silent():with_desc("tool: Run code by file"),
 
 	-- Plugin: toggleterm
 	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.

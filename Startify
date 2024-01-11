@@ -1,0 +1,33 @@
+
+            __                __                
+    __   __/_/___ ___  ____  / /_  _______      
+    \ \ / / / __ `__ \/ __ \/ / / / / ___/      
+     \ V / / / / / / / /_/ / / /_/ (__  )       
+      \_/_/_/ /_/ /_/ ,___/_/\____/____/        
+                   /_/                          
+                                                
+    Keep It Simple, Stupid.                     
+
+   [e]  <empty buffer>
+
+   MRU
+
+   [0]   ~/opensouce/nvimdots/lua-setup.lua
+   [1]   ~/opensouce/nvimdots/init.vim.my
+   [2]   ~/opensouce/vimplus/.vimrc.custom.config
+   [3]   ~/.vim/lua-setup.lua
+   [4]   ~/opensouce/nvimdots/init.vim
+   [5]   ~/work/7.0.0.2_0002/drive-linux/kernel/nvidia-6.1/source/drivers/staging/logger/logger.c
+   [6]   ~/work/7.0.0.2_0002/drive-linux/kernel/nvidia-6.1/source/kernel/locking/rtmutex.c
+   [7]   ~/work/7.0.0.2_0002/drive-linux/kernel/nvidia-6.1/source/include/linux/spinlock.h
+   [8]   ~/work/7.0.0.2_0002/drive-linux/kernel/nvidia-6.1/source/kernel/locking/spinlock.c
+   [9]   ~/work/7.0.0.2_0002/drive-linux/kernel/nvidia-6.1/source/include/linux/spinlock_api_smp.h
+
+   MRU /home/limingming/opensouce/nvimdots
+
+   [10]  lua-setup.lua
+   [11]  init.vim.my
+   [12]  init.vim
+   [13]  lua/modules/plugins/tool.lua
+
+   [q]  <quit>
