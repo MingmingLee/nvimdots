@@ -76,10 +76,19 @@ if settings.use_chat then
 	tool["olimorris/codecompanion.nvim"] = {
 		lazy = true,
 		tag = "v17.33.0",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
+	-- 不要使用 event = "VeryLazy"，改为在需要时加载，或者延迟加载
+		cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
+		keys = {
+		  { "<leader>a", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" } },
+		  { "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" } },
+		},
 		config = require("tool.codecompanion"),
 		dependencies = {
-			{ "ravitemer/codecompanion-history.nvim" },
+			{
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"ravitemer/codecompanion-history.nvim" },
 		},
 	}
 end
@@ -106,6 +115,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "debugloop/telescope-undo.nvim" },
 		{ "nvim-telescope/telescope-frecency.nvim" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		{ "fcying/telescope-ctags-outline.nvim"},
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{
 			"ayamir/search.nvim",
@@ -152,6 +162,183 @@ tool["mfussenegger/nvim-dap"] = {
 			dependencies = "nvim-neotest/nvim-nio",
 			config = require("tool.dap.dapui"),
 		},
+	},
+}
+
+
+tool["Yggdroot/LeaderF"] = {
+	lazy = false,
+	run = ':LeaderfInstallCExtension',
+}
+
+tool["christoomey/vim-tmux-navigator"] = {
+	lazy = false,
+}
+
+tool["tmux-plugins/vim-tmux"] = {
+	lazy = false,
+}
+
+tool["skywind3000/asyncrun.vim"] = {
+	lazy = false,
+}
+
+tool["liuchengxu/vista.vim"] = {
+	lazy = false,
+}
+
+tool["junegunn/fzf"] = {
+	lazy = false,
+	run = function()
+        -- 使用 fzf-nvim 包中的安装函数来安装 fzf 二进制文件
+        vim.fn['fzf#install']()
+        end
+}
+
+tool["inkarkat/vim-mark"] = {
+	lazy = false,
+	dependencies = { "inkarkat/vim-ingo-library" },
+}
+
+tool["c0r73x/neotags.lua"] = {
+	lazy = false,
+	config = function()
+--	插件加载后调用 toggle 函数
+		require('neotags').toggle()
+	end,
+}
+
+tool["cshuaimin/ssr.nvim"] = {
+	lazy = false,
+	  module = "ssr",
+  -- Calling setup is optional.
+  config = function()
+    require("ssr").setup {
+      border = "rounded",
+      min_width = 50,
+      min_height = 5,
+      max_width = 120,
+      max_height = 25,
+      adjust_window = true,
+      keymaps = {
+        close = "q",
+        next_match = "n",
+        prev_match = "N",
+        replace_confirm = "<cr>",
+        replace_all = "<leader><cr>",
+      },
+    }
+  end
+}
+
+tool["jeffkreeftmeijer/vim-numbertoggle"] = {
+	lazy = false,
+}
+
+tool["justinmk/vim-sneak"] = {
+	lazy = false,
+}
+
+tool["gbprod/yanky.nvim"] = {
+	lazy = false,
+}
+
+tool["szw/vim-maximizer"] = {
+	lazy = false,
+}
+tool['Wansmer/symbol-usage.nvim'] = {
+	lazy = false,
+	event = 'BufReadPre', -- 在LspAttach之前运行，如果使用的是nvim 0.9。对于0.10，使用'LspAttach'
+	config = function()
+		require('symbol-usage').setup()
+	end
+}
+
+tool["linrongbin16/fzfx.nvim"] = {
+	dependencies = { "nvim-tree/nvim-web-devicons", 'junegunn/fzf' },
+
+		    -- specify version to avoid break changes
+		    -- version = 'v5.*',
+
+		    config = function()
+			      require("fzfx").setup()
+		    end,
+
+}
+
+-- Lua
+tool['abecodes/tabout.nvim'] = {
+    lazy = false,
+    config = function()
+      require('tabout').setup {
+        tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
+        backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
+        act_as_tab = true, -- shift content if tab out is not possible
+        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        default_tab = '<C-t>', -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+        default_shift_tab = '<C-d>', -- reverse shift default action,
+        enable_backwards = true, -- well ...
+        completion = false, -- if the tabkey is used in a completion pum
+        tabouts = {
+          { open = "'", close = "'" },
+          { open = '"', close = '"' },
+          { open = '`', close = '`' },
+          { open = '(', close = ')' },
+          { open = '[', close = ']' },
+          { open = '{', close = '}' }
+        },
+        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+        exclude = {} -- tabout will ignore these filetypes
+      }
+    end,
+    dependencies = { -- These are optional
+      "nvim-treesitter/nvim-treesitter",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/nvim-cmp"
+    },
+    opt = true,  -- Set this to true if the plugin is optional
+    event = 'InsertCharPre', -- Set the event to 'InsertCharPre' for better compatibility
+    priority = 1000,
+}
+
+--tool["smoka7/multicursors.nvim"] = {
+--    event = "VeryLazy",
+--    dependencies = {
+--        'nvimtools/hydra.nvim',
+--    },
+--	lazy = false,
+--    opts = {},
+--    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+--    keys = {
+--            {
+--                mode = { 'v', 'n' },
+--                '<C-m>',
+--                '<cmd>MCstart<cr>',
+--                desc = 'Create a selection for selected text or word under the cursor',
+--            },
+--        },
+--}
+
+tool["chrisgrieser/nvim-spider"] = {
+	lazy = false,
+	keys = {
+		{
+			"w",
+			"<cmd>lua require('spider').motion('w')<CR>",
+			mode = { "n", "o", "x" },
+		},
+
+		{
+			"b",
+			"<cmd>lua require('spider').motion('b')<CR>",
+			mode = { "n", "o", "x" },
+		},
+		{
+			"e",
+			"<cmd>lua require('spider').motion('e')<CR>",
+			mode = { "n", "o", "x" },
+		},
+
 	},
 }
 
